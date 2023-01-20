@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.views import generic as views
 
 from online_library.library.forms import CreateProfileForm, AddBookForm
 from online_library.library.models import Profile, Book
@@ -52,8 +53,13 @@ def add_book(request):
     return render(request, 'book/add-book.html', context=context)
 
 
-def edit_book(request, pk):
-    pass
+class EditBook(views.UpdateView):
+    template_name = 'book/edit-book.html'
+    model = Book
+    fields = '__all__'
+class DetailsBook(views.DetailView):
+    template_name = 'book/book-details.html'
+    model = Book
 
 def details_book(request, pk):
     pass
