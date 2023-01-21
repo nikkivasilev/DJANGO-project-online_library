@@ -12,6 +12,7 @@ def get_profile():
     except Profile.DoesNotExist:
         return None
 
+
 def index(request):
     profile = get_profile()
     if not profile:
@@ -22,7 +23,7 @@ def index(request):
         "books": Book.objects.all()
     }
 
-    return render(request, 'profile/home-with-profile.html', context=context)
+    return render(request, 'base/home-with-profile.html', context=context)
 
 
 def create_profile(request):
@@ -36,7 +37,8 @@ def create_profile(request):
     context = {
         'form': form,
     }
-    return render(request, 'profile/home-no-profile.html', context=context)
+    return render(request, 'base/home-no-profile.html', context=context)
+
 
 def add_book(request):
     if request.method == 'GET':
@@ -57,18 +59,32 @@ class EditBook(views.UpdateView):
     template_name = 'book/edit-book.html'
     model = Book
     fields = '__all__'
+
+
+def delete_book(request, pk):
+    book = Book.objects \
+        .filter(id=pk)
+    if book:
+        book.delete()
+    return redirect('index')
+
+
 class DetailsBook(views.DetailView):
     template_name = 'book/book-details.html'
     model = Book
 
+
 def details_book(request, pk):
     pass
+
 
 def main_profile(request):
     pass
 
+
 def edit_profile(request):
     pass
+
 
 def delete_profile(request):
     pass

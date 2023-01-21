@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/images/library.jpg" type="image/x-icon"/>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Online Books Library</title>
+</head>
+<body>
+<nav class="navbar">
+            <section class="navbar-dashboard">
+                <a href="{% url 'index' %}">Dashboard</a>
+                <div id="user">
+                    <span>Welcome, {{ profile.first_name }}</span>
+                    <a class="button" href="{% url 'add book' %}">Add Book</a>
+                    <a class="button" href="{% url 'main profile' %}">Profile</a>
+                </div>
+            </section>
+</nav>
+
+{% block PageContent %}
+{% endblock %}
+
+<footer id="site-footer">
+        <p>Python Web Basics Retake Exam @SoftUni</p>
+    </footer>
+
+
+
+</body>
+</html>
