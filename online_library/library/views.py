@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
 from django.views import generic as views
 
 from online_library.library.forms import CreateProfileForm, AddBookForm
@@ -12,6 +13,11 @@ def get_profile():
     except Profile.DoesNotExist:
         return None
 
+def get_fullname(profile):
+    firstname = profile.first_name if profile.first_name else ''
+    lastname = profile.last_name if profile.last_name else ''
+    fullname = [firstname, lastname]
+    return ' '.join(fullname).strip()
 
 def index(request):
     profile = get_profile()
@@ -59,6 +65,7 @@ class EditBook(views.UpdateView):
     template_name = 'book/edit-book.html'
     model = Book
     fields = '__all__'
+    success_url = reverse_lazy('index')
 
 
 def delete_book(request, pk):
@@ -73,14 +80,21 @@ class DetailsBook(views.DetailView):
     template_name = 'book/book-details.html'
     model = Book
 
+# class DetailsProfile(views.DetailView):
+#     template_name = 'profile/profile.html'
+#     model = Profile
 
-def details_book(request, pk):
-    pass
 
+def details_profile(request):
+    profile = get_profile()
+    if not profile:
+        return create_profile(request)
 
-def main_profile(request):
-    pass
-
+    context = {
+        'profile': profile,
+        'fullname': get_fullname(profile)
+    }
+    return render(request, 'profile/profile.html', context=context)
 
 def edit_profile(request):
     pass
