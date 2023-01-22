@@ -96,6 +96,7 @@ def details_profile(request):
     }
     return render(request, 'profile/profile.html', context=context)
 
+
 def edit_profile(request):
     pass
 
