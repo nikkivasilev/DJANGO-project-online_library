@@ -2,7 +2,7 @@
 from pathlib import Path
 
 from django.db.models import BigAutoField
-
+from django.urls import reverse_lazy
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -103,3 +103,5 @@ STATICFILES_DIRS = (
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'accounts.AppUser'
+LOGIN_URL = reverse_lazy('login user')
+LOGIN_REDIRECT_URL = reverse_lazy('index')

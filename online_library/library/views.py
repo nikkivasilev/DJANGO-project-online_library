@@ -4,12 +4,12 @@ from django.views import generic as views
 
 
 def index(request):
-    # profile = get_profile()
-    # if not profile:
+    # accounts = get_profile()
+    # if not accounts:
     #     return create_profile(request)
     #
     # context = {
-    #     'profile': profile,
+    #     'accounts': accounts,
     #     "books": Book.objects.all()
     # }
     #
@@ -27,7 +27,7 @@ def index(request):
 #     context = {
 #         'form': form,
 #     }
-#     return render(request, 'base/home-no-profile.html', context=context)
+#     return render(request, 'base/home-no-accounts.html', context=context)
 #
 #
 # def add_book(request):
@@ -68,15 +68,15 @@ def index(request):
 
 
 # def details_profile(request):
-#     profile = get_profile()
-#     if not profile:
+#     accounts = get_profile()
+#     if not accounts:
 #         return create_profile(request)
 #
 #     context = {
-#         'profile': profile,
-#         'fullname': get_fullname(profile)
+#         'accounts': accounts,
+#         'fullname': get_fullname(accounts)
 #     }
-#     return render(request, 'profile/profile.html', context=context)
+#     return render(request, 'accounts/accounts.html', context=context)
 
 
 # def edit_profile(request):
