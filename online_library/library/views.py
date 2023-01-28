@@ -80,26 +80,24 @@ class DetailsBook(views.DetailView):
     template_name = 'book/book-details.html'
     model = Book
 
-# class DetailsProfile(views.DetailView):
-#     template_name = 'profile/profile.html'
-#     model = Profile
 
 
-def details_profile(request):
-    profile = get_profile()
-    if not profile:
-        return create_profile(request)
 
-    context = {
-        'profile': profile,
-        'fullname': get_fullname(profile)
-    }
-    return render(request, 'profile/profile.html', context=context)
-
-
-def edit_profile(request):
-    pass
+# def details_profile(request):
+#     profile = get_profile()
+#     if not profile:
+#         return create_profile(request)
+#
+#     context = {
+#         'profile': profile,
+#         'fullname': get_fullname(profile)
+#     }
+#     return render(request, 'profile/profile.html', context=context)
 
 
-def delete_profile(request):
-    pass
+# def edit_profile(request):
+#     pass
+#
+#
+# def delete_profile(request):
+#     pass
