@@ -2,23 +2,18 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic as views
 
-def get_fullname(profile):
-    firstname = profile.first_name if profile.first_name else ''
-    lastname = profile.last_name if profile.last_name else ''
-    fullname = [firstname, lastname]
-    return ' '.join(fullname).strip()
 
-# def index(request):
-#     profile = get_profile()
-#     if not profile:
-#         return create_profile(request)
-#
-#     context = {
-#         'profile': profile,
-#         "books": Book.objects.all()
-#     }
-#
-#     return render(request, 'base/home-with-profile.html', context=context)
+def index(request):
+    # profile = get_profile()
+    # if not profile:
+    #     return create_profile(request)
+    #
+    # context = {
+    #     'profile': profile,
+    #     "books": Book.objects.all()
+    # }
+    #
+    return render(request, 'base/home-with-profile.html')
 
 
 # def create_profile(request):
