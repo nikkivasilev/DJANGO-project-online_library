@@ -6,8 +6,6 @@ from django.db import models
 from online_library.accounts.validators import validate_only_letters, validate_file_size
 
 
-# Create your models here.
-
 class AppUser(auth_models.AbstractUser):
     MIN_LEN_FIRST_NAME = 2
     MAX_LEN_FIRST_NAME = 30
