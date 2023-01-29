@@ -4,6 +4,8 @@ from django.views import generic as views
 
 
 def index(request):
+    return render(request, 'base/home.html')
+
     # accounts = get_profile()
     # if not accounts:
     #     return create_profile(request)
@@ -13,7 +15,6 @@ def index(request):
     #     "books": Book.objects.all()
     # }
     #
-    return render(request, 'base/home-with-profile.html')
 
 
 # def create_profile(request):
