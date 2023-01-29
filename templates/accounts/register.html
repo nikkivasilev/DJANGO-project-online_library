@@ -4,17 +4,6 @@
 
 {% block PageContent %}
 <div id="container">
-    <header id="site-header">
-
-        <!-- Navigation -->
-        <nav class="navbar">
-            <section class="navbar-dashboard">
-{#                <a href="{% url 'index' %}">Dashboard</a>#}
-            </section>
-        </nav>
-    </header>
-
-    <!-- No Profile Page -->
     <section id="register-page" class="register">
         <form id="register-form" action="{% url 'register user' %}" method="post">
             <fieldset>
@@ -25,9 +14,5 @@
             </fieldset>
         </form>
     </section>
-
-    <footer id="site-footer">
-        <p>Python Web Basics Retake Exam @SoftUni</p>
-    </footer>
 </div>
 {% endblock %}
