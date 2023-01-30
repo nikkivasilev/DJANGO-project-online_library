@@ -8,6 +8,15 @@ nav.navbar {
   padding: 0.8rem 1rem;
   color: white;
 }
+#home-button {
+    list-style: none;
+    text-decoration: none;
+    align-self: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: white;
+}
+
 #site-header > nav > section.navbar-dashboard > a{
     list-style: none;
     text-decoration: none;

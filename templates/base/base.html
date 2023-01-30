@@ -9,33 +9,31 @@
 </head>
 <body>
 <nav id="site-header" class="navbar">
-            <section class="navbar-dashboard">
-                <a href="{% url 'index' %}">Dashboard</a>
+    <section class="navbar-dashboard">
+            <a id="home-button" href="{% url 'index' %}">Dashboard</a>
+        {% if user.is_autenticated %}
+            <div>
+                <span>Welcome, {{ user }}</span>
+                <a class="button" href="{% url 'index' %}">Add Book</a>
+                <a class="button" href="{% url 'details user' %}">Profile</a>
+                <a class="button" href="{% url 'logout user' %}">Log Out</a>
+            </div>
+        {% else %}
+            <div>
+                <a class="button" href="{% url 'register user' %}">Register</a>
+                <a class="button" href="{% url 'login user' %}">Log In</a>
+            </div>
+        {% endif %}
 
-                {% if user.is_autenticated %}
-                <div>
-                    <span>Welcome, {{ user }}</span>
-                    <a class="button" href="{% url 'index' %}">Add Book</a>
-                    <a class="button" href="{% url 'details user' %}">Profile</a>
-                    <a class="button" href="{% url 'logout user' %}">Log Out</a>
-                </div>
-                {% else %}
-                    <div>
-                    <a class="button" href="{% url 'register user' %}">Register</a>
-                    <a class="button" href="{% url 'login user' %}">Log In</a>
-                    </div>
-                {% endif %}
-
-            </section>
+    </section>
 </nav>
 
 {% block PageContent %}
 {% endblock %}
 
 <footer id="site-footer">
-        <p>Python Web Basics Retake Exam @SoftUni</p>
-    </footer>
-
+    <p>Python Web Basics Retake Exam @SoftUni</p>
+</footer>
 
 
 </body>
