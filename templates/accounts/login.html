@@ -1,5 +1,17 @@
+{% extends 'base/base.html' %}
+{% load static %}
 
 
-{# TODO: LOGIN PAGE#}
-
-<h1>THIS IS LOGIN PAGE</h1>
+{% block PageContent %}
+<div id="container">
+    <section id="register-page" class="register">
+        <form id="register-form" action="{% url 'login user' %}" method="post">
+            <fieldset>
+                {{ form }}
+            </fieldset>
+            {% csrf_token %}
+                <input class="button submit" type="submit" value="Enter">
+        </form>
+    </section>
+</div>
+{% endblock %}

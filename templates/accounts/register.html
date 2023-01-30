@@ -3,16 +3,15 @@
 
 
 {% block PageContent %}
-<div id="container">
-    <section id="register-page" class="register">
-        <form id="register-form" action="{% url 'register user' %}" method="post">
-            <fieldset>
-                {{ form }}
+    <div id="container">
+        <section id="register-page" class="register">
+            <form id="register-form" action="{% url 'register user' %}" method="post">
+                <fieldset>
+                    {{ form }}
+                </fieldset>
                 {% csrf_token %}
                 <input class="button submit" type="submit" value="Enter">
-
-            </fieldset>
-        </form>
-    </section>
-</div>
+            </form>
+        </section>
+    </div>
 {% endblock %}
