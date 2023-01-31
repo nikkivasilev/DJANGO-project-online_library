@@ -1,3 +1,15 @@
-
-
-{# TODO: DETAILS USER PAGE#}
+{% extends 'base/base.html' %}
+{% block PageContent %}
+    <div id="container">
+        <section id="profile-page" class="details">
+            <div class="profile-information">
+                <h3>{{ fullname}}</h3>
+                <p class="img"><img src="{{ object.profile_picture }}" alt="no-profile-picture"></p>
+                <div class="actions">
+                    <a class="button" href="{% url 'edit user' pk=request.user.pk %}">Edit</a>
+                    <a class="button" href="{% url 'delete user' pk=request.user.pk%}">Delete</a>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}

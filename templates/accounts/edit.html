@@ -1,3 +1,26 @@
+{% extends 'base/base.html' %}
+{% block PageContent %}
+    <div id="container">
 
+        <section id="edit-profile-page" class="edit">
+            <form id="edit-form" action="{% url 'edit user' pk=request.user.pk %}" method="post">
+                <fieldset>
+                    <legend>Edit Profile</legend>
+                    <label for="first-name">First Name</label>
+                    {{ form.first_name }}
+                    {{ form.first_name.errors }}
 
-{#TODO IMPLEMENT EDIT PAGE#}
+                    <label for="last-name">Last name</label>
+                    {{ form.last_name }}
+                    {{ form.last_name.errors }}
+                    <label for="image-url">Image URL</label>
+                    {{ form.profile_picture }}
+                    {{ form.profile_picture.errors }}
+                    <input class="button submit" type="submit" value="Edit">
+                </fieldset>
+                {% csrf_token %}
+            </form>
+        </section>
+    </div>
+{% endblock %}
+
