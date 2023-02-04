@@ -1,13 +1,24 @@
 {% extends 'base/base.html' %}
+{% load static %}
 {% block PageContent %}
     <div id="container">
         <section id="profile-page" class="details">
             <div class="profile-information">
-                <h3>{{ fullname}}</h3>
-                <p class="img"><img src="{{ object.profile_picture }}" alt="no-profile-picture"></p>
+                <h3>{{ fullname }}</h3>
+                {% if user.profile_picture %}
+                    <div class="img">
+                        <img src="{{ user.profile_picture.url }}"
+                             alt="Profile Image">
+                    </div>
+                {% else %}
+                    <div class="img">
+                        <img src="{% static 'images/blank-profile-picture-973460_1280.jpeg' %}"
+                             alt="No Profile Image">
+                    </div>
+                {% endif %}
                 <div class="actions">
                     <a class="button" href="{% url 'edit user' pk=request.user.pk %}">Edit</a>
-                    <a class="button" href="{% url 'delete user' pk=request.user.pk%}">Delete</a>
+                    <a class="button" href="{% url 'delete user' pk=request.user.pk %}">Delete</a>
                 </div>
             </div>
         </section>

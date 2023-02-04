@@ -1,21 +1,23 @@
 {% extends 'base/base.html' %}
+{% load placeholders %}
 {% block PageContent %}
     <div id="container">
 
         <section id="edit-profile-page" class="edit">
-            <form id="edit-form" action="{% url 'edit user' pk=request.user.pk %}" method="post">
+            <form id="edit-form" action="{% url 'edit user' pk=request.user.pk %}" method="post" enctype="multipart/form-data">
                 <fieldset>
                     <legend>Edit Profile</legend>
-                    <label for="first-name">First Name</label>
-                    {{ form.first_name }}
+                    {{ form.username.errors }}
+                    <label for="username">Username:{{ form.username|placeholder:'Username ' }}</label>
                     {{ form.first_name.errors }}
-
-                    <label for="last-name">Last name</label>
-                    {{ form.last_name }}
+                    <label for="First name">First name:{{ form.first_name|placeholder:'First name ' }}</label>
                     {{ form.last_name.errors }}
-                    <label for="image-url">Image URL</label>
-                    {{ form.profile_picture }}
+                    <label for="Last name">Last name:{{ form.last_name|placeholder:'Last Name ' }}</label>
+                    {{ form.email.errors }}
+                    <label for="Email">Email:{{ form.email|placeholder:'Email ' }}</label>
                     {{ form.profile_picture.errors }}
+                    <label for="Profile Picture">Profile Picture:{{ form.profile_picture|placeholder:'Profile picture ' }}</label>
+
                     <input class="button submit" type="submit" value="Edit">
                 </fieldset>
                 {% csrf_token %}
