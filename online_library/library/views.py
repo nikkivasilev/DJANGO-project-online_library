@@ -2,35 +2,15 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic as views
 
-
-def index(request):
-    return render(request, 'base/home.html')
-
-    # accounts = get_profile()
-    # if not accounts:
-    #     return create_profile(request)
-    #
-    # context = {
-    #     'accounts': accounts,
-    #     "books": Book.objects.all()
-    # }
-    #
+from online_library.library.models import Book
 
 
-# def create_profile(request):
-#     if request.method == 'GET':
-#         form = CreateProfileForm()
-#     else:
-#         form = CreateProfileForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('index')
-#     context = {
-#         'form': form,
-#     }
-#     return render(request, 'base/home-no-accounts.html', context=context)
-#
-#
+class IndexView(views.ListView):
+    template_name = 'base/home.html'
+    model = Book
+
+
+
 # def add_book(request):
 #     if request.method == 'GET':
 #         form = AddBookForm()
@@ -64,25 +44,3 @@ def index(request):
 # class DetailsBook(views.DetailView):
 #     template_name = 'book/book-details.html'
 #     model = Book
-
-
-
-
-# def details_profile(request):
-#     accounts = get_profile()
-#     if not accounts:
-#         return create_profile(request)
-#
-#     context = {
-#         'accounts': accounts,
-#         'fullname': get_fullname(accounts)
-#     }
-#     return render(request, 'accounts/accounts.html', context=context)
-
-
-# def edit_profile(request):
-#     pass
-#
-#
-# def delete_profile(request):
-#     pass
