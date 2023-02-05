@@ -1,3 +1,15 @@
+{% extends 'base/base.html' %}
+{% block PageContent %}
+    <div id="container">
 
+        <section id="edit-profile-page" class="edit">
+            <h1 style="margin-bottom: 28px">Are you sure you want to delete your profile?</h1>
+            <form method="post" action="{% url 'delete user' pk=request.user.pk %}">
+                {{ form }}
+                {% csrf_token %}
+                <input class="button submit" type="submit" value="Delete">
+            </form>
+        </section>
+    </div>
+{% endblock %}
 
-{#IMPLEMENT DELETE USER PAGE#}
