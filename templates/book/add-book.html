@@ -1,32 +1,7 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base/base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="/images/library.jpg" type="image/x-icon"/>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <title>Online Books Library</title>
-</head>
-
-<body>
+{% block PageContent %}
 <div id="container">
-    <header id="site-header">
-
-        <!-- Navigation -->
-        <nav class="navbar">
-            <section class="navbar-dashboard">
-                <a href="{% url 'index' %}">Dashboard</a>
-                <div id="user">
-                    <span>Welcome, Peter</span>
-                    <a class="button" href="{% url 'add book' %}">Add Book</a>
-                    <a class="button" href="{% url 'main accounts' %}">Profile</a>
-                </div>
-            </section>
-        </nav>
-    </header>
-
-    <!-- Add Book Page -->
     <section id="create-page" class="create">
         <form id="create-form" action="{% url 'add book' %}" method="POST">
             <fieldset>
@@ -38,10 +13,5 @@
         </form>
     </section>
 
-    <footer id="site-footer">
-        <p>Python Web Basics Retake Exam @SoftUni</p>
-    </footer>
 </div>
-</body>
-
-</html>
+{% endblock %}

@@ -14,7 +14,7 @@
         {% if user.is_authenticated %}
             <div>
                 <span>Welcome, {{ user }}</span>
-                <a class="button" href="{% url 'index' %}">Add Book</a>
+                <a class="button" href="{% url 'add book' %}">Add Book</a>
                 <a class="button" href="{% url 'details user' pk=request.user.pk %}">Profile</a>
                 <a class="button" href="{% url 'logout user' %}">Log Out</a>
                 {% if user.is_staff %}

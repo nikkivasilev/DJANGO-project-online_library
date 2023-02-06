@@ -9,7 +9,7 @@
         <section id="dashboard-page" class="dashboard">
             <h1>Dashboard</h1>
             {% if object_list %}
-                {% for book in object_list|slice:':3:' %}
+                {% for book in object_list %}
                     <ul class="my-books-list">
                     <li class="myBooks">
                         <h3>{{ book.title }}</h3>
